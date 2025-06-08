@@ -6,13 +6,11 @@ import os
 
 
 def set_console_title(title):
-    # Linux/macOS terminal title via ANSI escape code
     sys.stdout.write(f"\33]0;{title}\a")
     sys.stdout.flush()
 
 
 def set_console_size(width, height):
-    # Essaye de redimensionner la fenêtre du terminal (fonctionne sur certains terminaux)
     try:
         os.system(f"printf '\e[8;{height};{width}t'")
     except Exception:
